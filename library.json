@@ -1,6 +1,6 @@
 {
     "name": "LineNotify",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "description": "Simple Library for EPS32 to send message to LINE Application",
     "keywords": "line, notify, notification, esp32, arduino",
     "repository": {
