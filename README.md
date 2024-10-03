@@ -1,47 +1,64 @@
-# LineNotify
-Simple Library for EPS32 to send message to LINE Application
-# LineNotify Library for ESP32
+# LineNotify 📲
+A simple and efficient library for ESP32 to send real-time notifications to the LINE application via the LINE Notify API.
 
-This library allows you to send notifications to LINE using the ESP32. It uses the LINE Notify API to send messages.
+## 🔥 Features
 
-## Installation
+- Seamlessly send messages from ESP32 to LINE.
+- Uses the official LINE Notify API.
+- Great for IoT notifications, alerts, and system monitoring.
 
-1. **Download the Library**: Clone or download this repository.
-2. **Add to Arduino Libraries**: Copy the `LineNotify` folder to your Arduino libraries directory (usually located at `~/Documents/Arduino/libraries`).
+## 📥 Installation
 
-## Usage
+1. **Clone or Download** this repository.
+2. **Add to Arduino Libraries**: Copy the `LineNotify` folder into your Arduino libraries directory (default location: `~/Documents/Arduino/libraries`).
+3. **Register with LINE Notify**: Get your token from [LINE Notify](https://notify-bot.line.me/th/).
 
-### Include the Library
+## 🛠️ Usage
 
-Include the `LineNotify` library in your sketch:
+### 1. Include the Library
+
+Start by including the `LineNotify` library in your sketch:
 
 ```cpp
-#include "LineNotify.h"
+#include <LineNotify.h>
 
-const char* token = "your_LINE_token";
-LineNotify lineNotify(token);
+// Replace with your WiFi credentials and LINE Notify token
+const char *WIFI_SSID = "YOUR_WIFI_SSID";
+const char *WIFI_PASS = "YOUR_WIFI_PASSWORD";
+const char *LINE_TOKEN = "YOUR_LINE_TOKEN";
 
-const char* ssid = "your_SSID";
-const char* password = "your_PASSWORD";
+// Create an instance of LineNotify
+LineNotify lineNotify(LINE_TOKEN);
 
 void setup() {
     Serial.begin(115200);
-    WiFi.begin(ssid, password);
+    WiFi.begin(WIFI_SSID, WIFI_PASS);
 
+    // Wait until WiFi is connected
     while (WiFi.status() != WL_CONNECTED) {
         delay(1000);
         Serial.println("Connecting to WiFi...");
     }
     Serial.println("Connected to WiFi");
+
+    // Send a notification to LINE when ESP32 is connected
+    lineNotify.send("ESP32 is now connected to WiFi!");
 }
 
 void loop() {
-    lineNotify.send("This is a message from ESP32");
-    delay(10000); // Wait for 10 seconds
+    // Send a periodic notification
+    lineNotify.send("Hello from ESP32");
+    delay(10000); // Wait for 10 seconds before sending again
 }
 ```
-### Explanation:
-- **Installation**: Instructions on how to install the library.
-- **Usage**: Examples of how to include, initialize, and use the library.
-- **Full Example**: A complete example sketch demonstrating the usage of the library.
-- **License**: Information about the license.
+### 2. Sending Messages
+
+After connecting to WiFi, the `LineNotify` library allows you to send messages directly to your LINE app by calling the `.send()` function.
+
+---
+## 📞 Contact
+
+If you have any questions or need further assistance, feel free to reach out!
+
+- **Facebook**: [Min Sakmueng](https://www.facebook.com/Min.Sakmueng)
+- **Email**: [aaaxcvg@gmail.com](mailto:aaaxcvg@gmail.com)
