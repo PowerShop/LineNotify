@@ -1,15 +1,15 @@
 {
     "name": "LineNotify",
     "version": "1.0.0",
-    "description": "A library to send notifications using Line Notify",
-    "keywords": "line, notify, notification",
+    "description": "Simple Library for EPS32 to send message to LINE Application",
+    "keywords": "line, notify, notification, esp32, arduino",
     "repository": {
         "type": "git",
         "url": "https://github.com/PowerShop/LineNotify.git"
     },
     "authors": [
         {
-            "name": "Kittisak Sakmeang",
+            "name": ".xyz",
             "email": "aaaxcvg@gmail.com",
             "maintainer": true
         }
