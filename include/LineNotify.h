@@ -9,6 +9,7 @@ class LineNotify {
 public:
     LineNotify(const char* token);
     void send(const char* message);
+    String textEncode(const char *str);
 
 private:
     const char* _token;
